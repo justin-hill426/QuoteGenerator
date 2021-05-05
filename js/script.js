@@ -1,16 +1,8 @@
 /******************************************
-Treehouse FSJS Techdegree:
-project 1 - A Random Quote Generator
+Random Quote Generator
 ******************************************/
 
-// For assistance:
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
-
-/***
- * `quotes` array
-***/
-
+//Generate Quotes Array
 const quotes = [
   {
     quote : "Simplicity is the Ultimate Sophistication",
@@ -71,13 +63,13 @@ const quotes = [
     tag : "Investing"
   },
   {
-    quote : "The way to happiness: keep your heart free from hate, your mind from worry. Live simply,expect little, give much. Fill your life with love. Scatter sunshine. Forget self, think of others. Do as you would be done by.",
+    quote : "The way to happiness: keep your heart free from hate, your mind from worry. Live simply, expect little, give much. Fill your life with love. Scatter sunshine. Forget self, think of others. Do as you would be done by.",
     source : "Norman Vincent Peale",
     citation: "The Power of Positive Thinking",
     tag : "Optimism"
   },
   {
-    quote : "For me, great algorithms are the poetry of computation. Just like verse, they can be terse, allusive, dense, and evenmysterious. But once unlocked, they cast a brilliant newlight on some aspect of computing.",
+    quote : "For me, great algorithms are the poetry of computation. Just like verse, they can be terse, allusive, dense, and even mysterious. But once unlocked, they cast a brilliant new light on some aspect of computing.",
     source : "Francis Sullivan",
     tag : "Computer Science"
   },
@@ -104,22 +96,19 @@ const quotes = [
   },
 ]
 
-
-
-/***
- * `getRandomQuote` function
-***/
-
+/**
+ * Returns a random quote from the quotes array
+ *
+ */
 const getRandomQuote = quotes => {
   const randomNumber = Math.floor(Math.random() * quotes.length);
   return quotes[randomNumber];
 };
 
 
-/***
- * `printQuote` function
-***/
-
+/**
+ * Print the randomly generated quote
+ */
 const printQuote = () => {
   let html = "";
   const quote = getRandomQuote(quotes);
@@ -139,7 +128,10 @@ const printQuote = () => {
   random_bg_color();
 };
 
-//Extra Credit
+/**
+ * Changes the background color to a randomly generated RGB value
+ *
+ */
 function random_bg_color() {
     var x = Math.floor(Math.random() * 256);
     var y = Math.floor(Math.random() * 256);
@@ -148,15 +140,16 @@ function random_bg_color() {
     document.body.style.background = bgColor;
 }
 
+/**
+ * Starts an interval of 10 seconds to automatically print a new quote
+ *
+ */
 function timing() {
   setInterval(printQuote, 10000);
 }
 
-
-
 /***
  * click event listener for the print quote button
- * DO NOT CHANGE THE CODE BELOW!!
 ***/
 timing();
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
